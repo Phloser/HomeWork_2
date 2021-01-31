@@ -2,8 +2,41 @@
 
 namespace HomeWork_2
 {
+    enum status { login, notlogin, error }
+
     class Program
     {
+        static void dz()
+        {
+            Console.WriteLine("Добро пожаловать, проверяющий!");
+            while (true)
+            {
+                Console.WriteLine($"Введите номер задания (0 - выход):");
+                var index = int.Parse(Console.ReadLine());
+
+                switch (index)
+                {
+                    case 0:
+                        return;
+                    case 1:
+                        Task1();
+                        break;
+                    case 2:
+                        Task2();
+                        break;
+                    case 3:
+                        Task3();
+                        break;
+                }
+            }
+
+        }
+        static void error()
+        {
+            //status user = status.error;
+            Console.WriteLine("Ошибка входа!!!");
+        }
+
         static void Task1()
         {
             Console.WriteLine("Введите 3 числа");
@@ -42,42 +75,55 @@ namespace HomeWork_2
         } // Написать метод подсчета количества цифр числа
         static void Task3()
         {
-            int y = 0; int x = 1;
-            Console.WriteLine("ВВодите числа (окончание ввода 0)");
-            while (x > 0; x < 0)
+            int x = 0; int y = 0;
+                Console.WriteLine("Вводите числа (окончание ввода 0)");
+            
+            do
             {
-                int x = int.Parse(Console.ReadLine());
-                if (x % 2 == 0) { }
-                else { y = y + x; }
+                x = int.Parse(Console.ReadLine());
+                if (x > 0) { if (x % 2 != 0) { y = y + x; }
+                        }
             }
+            while ( x != 0);
+
+            Console.WriteLine($"Сумма нечетных {y} ");
         } // С клавиатуры вводятся числа, пока не будет введен 0. Подсчитать сумму всех нечетных положительных чисел
 
-
-        static void Main()
+        static void Main(string[] args)
         {
-            while (true)
+            status user = status.notlogin;
+            int cont = 4;
+            string logtrue = "root";
+            string pastrue = "geekbrain";
+            do
             {
-                Console.WriteLine($"Введите номер задания (0 - выход):");
-                var index = int.Parse(Console.ReadLine());
-
-                switch (index)
+                cont--;
+                Console.WriteLine($"Введите login, осталось {cont} попыток");
+                string login;
+                string pass;
+                login = Console.ReadLine();
+                if (login == logtrue)
                 {
-                    case 0:
-                        return;
-                    case 1:
-                        Task1();
-                        break;
-                    case 2:
-                        Task2();
-                        break;
-                    case 3:
-                        Task3();
-                        break;
+                    Console.WriteLine("Введите пароль");
+                    pass = Console.ReadLine();
+                    if (pass == pastrue)
+                    {
+                        user = status.login;
+                        Console.WriteLine(user);
+                    }
+                    else Console.WriteLine(user);
                 }
+                else Console.WriteLine(user);
+            } while (cont < 4 & cont > 0 & user == status.notlogin);
+            switch (user)
+            {
+                case status.login: dz(); break;
+                case status.notlogin: error(); return;
             }
+
 
         }
 
-        
+
     }
 }
