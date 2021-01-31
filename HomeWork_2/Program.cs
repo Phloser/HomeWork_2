@@ -1,13 +1,15 @@
 ﻿using System;
+// Лозовский Филипп. ДЗ №2
 
 namespace HomeWork_2
 {
-    enum status { login, notlogin, error }
 
     class Program
     {
+        #region
         static void dz()
         {
+            Console.Clear();
             Console.WriteLine("Добро пожаловать, проверяющий!");
             while (true)
             {
@@ -36,7 +38,9 @@ namespace HomeWork_2
             //status user = status.error;
             Console.WriteLine("Ошибка входа!!!");
         }
-
+        #endregion
+        // Выбор задания
+        #region
         static void Task1()
         {
             Console.WriteLine("Введите 3 числа");
@@ -59,7 +63,10 @@ namespace HomeWork_2
             Console.WriteLine($"Самое маленькое число {min}");
             Console.ReadKey();
             Console.Clear();
-        } // Написать метод, возвращающий минимальное из трех чисел
+        }
+#endregion
+        // Написать метод, возвращающий минимальное из трех чисел
+        #region
         static void Task2()
         {
             Console.WriteLine("Введите число");
@@ -72,7 +79,10 @@ namespace HomeWork_2
             Console.WriteLine($"в числе {count} знаков");
             Console.ReadKey();
             Console.Clear();
-        } // Написать метод подсчета количества цифр числа
+        }
+#endregion
+        // Написать метод подсчета количества цифр числа
+        #region
         static void Task3()
         {
             int x = 0; int y = 0;
@@ -87,8 +97,13 @@ namespace HomeWork_2
             while ( x != 0);
 
             Console.WriteLine($"Сумма нечетных {y} ");
-        } // С клавиатуры вводятся числа, пока не будет введен 0. Подсчитать сумму всех нечетных положительных чисел
-
+            Console.ReadKey();
+            Console.Clear();
+        }
+        #endregion
+        // С клавиатуры вводятся числа, пока не будет введен 0. Подсчитать сумму всех нечетных положительных чисел
+        #region
+        enum status { login, notlogin, error }
         static void Main(string[] args)
         {
             status user = status.notlogin;
@@ -120,10 +135,9 @@ namespace HomeWork_2
                 case status.login: dz(); break;
                 case status.notlogin: error(); return;
             }
-
-
         }
 
-
+            #endregion 
+            // Проверка логина и пароля, 4 попытки (логин - root . пароль - geekbrain)
     }
 }
