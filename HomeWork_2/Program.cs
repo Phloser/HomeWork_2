@@ -1,5 +1,5 @@
 ﻿using System;
-// Лозовский Филипп. ДЗ №2
+// Лозовский Филипп. HOME WORK №2
 
 namespace HomeWork_2
 {
